@@ -4,26 +4,20 @@ var cv = require('opencv');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    cv.readImage("./prova.png", function(err, im) {
-      if (err) throw err;
-      if (im.width() < 1 || im.height() < 1) throw new Error('Image has no size');
+cv.readImage("./prova.png", function(err, im) {
+  if (err) throw err;
 
-      img_hsv = im.copy();
-      img_gray = im.copy();
+  var width = im.width();
+  var height = im.height();
+  if (width < 1 || height < 1) throw new Error('Image has no size');
 
-      img_hsv.convertHSVscale();
-      img_gray.convertGrayscale();
-
-      im.save('./nor.png');
-      img_hsv.save('./hsv.png');
-      img_gray.save('./gray.png');
-
-      img_crop = im.crop(50,50,250,250);
-      img_crop.save('./crop.png');
-
-      console.log('Image saved to ./{crop|nor|hsv|gray}.png');
-    });
-
+  var srcArray = [0, 0, width, 0, width, height, 0, height];
+  var dstArray = [0, 0, width * 0.9, height * 0.1, width, height, width * 0.2, height * 0.8];
+  var xfrmMat = im.getPerspectiveTransform(srcArray, dstArray);
+  im.warpPerspective(xfrmMat, width, height, [255, 255, 255]);
+  im.save("./warp-image.png");
+  console.log('Image saved to ./warp-image.png');
+});
   res.render('index', { title: 'Express' });
 });
 
