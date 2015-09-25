@@ -4,7 +4,7 @@ var cv = require('opencv');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-cv.readImage("http://cdn.alabern.iseic.net/authors/amadeu-marine-vadalaco.jpg", function(err, im){
+cv.readImage("prova.jpg", function(err, im){
 console.log(err);
 console.log(im);
 });
