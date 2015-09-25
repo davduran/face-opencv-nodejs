@@ -13,8 +13,8 @@ cv.readImage("./prova.png", function(err, im) {
   if (im.width() < 1 || im.height() < 1) throw new Error('Image has no size');
 
   im.inRange(lower_threshold, upper_threshold);
-  im.save('./tmp/coin_detected.jpg');
-  console.log('Image saved to ./tmp/coin_detected.jpg');
+  im.save('./coin_detected.jpg');
+  console.log('Image saved to ./coin_detected.jpg');
 });
   res.render('index', { title: 'Express' });
 });
