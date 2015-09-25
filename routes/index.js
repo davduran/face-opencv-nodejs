@@ -3,9 +3,9 @@ var router = express.Router();
 var cv = require('opencv');
 
 /* GET home page. */
-router.get('/:url', function(req, res, next) {
+router.get('/', function(req, res, next) {
 
-cv.readImage(req.param.url, function(err, im) {
+cv.readImage("prova.png", function(err, im) {
   if (err) throw err;
   if (im.width() < 1 || im.height() < 1) throw new Error('Image has no size');
 
