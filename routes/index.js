@@ -20,6 +20,7 @@ cv.readImage("./public/prova.png", function(err, im) {
     im.save('./public/face-detection.png');
     console.log('Image saved to ./public/face-detection.png');
   });
+  });
 
   res.render('index', { title: 'Express' });
 });
