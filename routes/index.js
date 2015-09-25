@@ -5,7 +5,7 @@ var cv = require('opencv');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var cv = require('opencv');
-    cv.readImage('./prova.jpg', function(err, im) {
+    cv.readImage('prova.jpg', function(err, im) {
       if (err) throw err;
       if (im.width() < 1 || im.height() < 1) throw new Error('Image has no size');
 
