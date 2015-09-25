@@ -4,18 +4,23 @@ var cv = require('opencv');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    // (B)lue, (G)reen, (R)ed
-var lower_threshold = [46, 57, 83];
-var upper_threshold = [80, 96, 115];
 
-cv.readImage("./prova.png", function(err, im) {
+cv.readImage("./public/prova.png", function(err, im) {
   if (err) throw err;
   if (im.width() < 1 || im.height() < 1) throw new Error('Image has no size');
 
-  im.inRange(lower_threshold, upper_threshold);
-  im.save('./coin_detected.jpg');
-  console.log('Image saved to ./coin_detected.jpg');
-});
+  im.detectObject("./public/haarcascade_frontalface_alt.xml", {}, function(err, faces){
+    if (err) throw err;
+
+    for (var i = 0; i < faces.length; i++){
+      var face = faces[i];
+      im.ellipse(face.x + face.width / 2, face.y + face.height / 2, face.width / 2, face.height / 2);
+    }
+
+    im.save('./public/face-detection.png');
+    console.log('Image saved to ./public/face-detection.png');
+  });
+
   res.render('index', { title: 'Express' });
 });
 
