@@ -5,4 +5,5 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
-        p !{im}
+        p Total personas detectades: !{ faces || '0'}
+        img(src="face-detection.png")

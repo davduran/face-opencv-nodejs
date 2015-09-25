@@ -22,7 +22,7 @@ cv.readImage("./public/prova.png", function(err, im) {
   });
   });
 
-  res.render('index', { title: 'Express' });
+  res.render('index', { faces: face.length});
 });
 
 module.exports = router;
