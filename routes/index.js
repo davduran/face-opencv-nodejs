@@ -9,7 +9,7 @@ cv.readImage("./public/prova.png", function(err, im) {
   if (err) throw err;
   if (im.width() < 1 || im.height() < 1) throw new Error('Image has no size');
 
-  im.detectObject("./public/haarcascade_frontalface_alt.xml", {}, function(err, faces){
+  im.detectObject("./public/cascade.xml", {}, function(err, faces){
     if (err) throw err;
 
     for (var i = 0; i < faces.length; i++){
