@@ -14,9 +14,9 @@ block content
                 span(class="face"+i+"race")
                 span(class="face"+i+"age")
                 script.
-                    $.get("http://apius.faceplusplus.com/v2/detection/detect?api_key=f0f939e1b74f86fc2cf035ab325c99f4&api_secret=5-5aeBoF5cocGQ_xmH36PvjYS0_kfjbR&url=http://pictur.io/faces/face"+$("#totalcaras").html+".jpg&attribute=glass,gender,age,race", function( data ) {
-                        $("face"+$("#totalcaras").html+"gender").html(data.face.attribute.gender.value);
-                        $("face"+$("#totalcaras").html+"glass").html(data.face.attribute.glass.value);
-                        $("face"+$("#totalcaras").html+"race").html(data.face.attribute.race.value);
-                        $("face"+$("#totalcaras").html+"age").html(data.face.attribute.age.value);
+                    $.get("http://apius.faceplusplus.com/v2/detection/detect?api_key=f0f939e1b74f86fc2cf035ab325c99f4&api_secret=5-5aeBoF5cocGQ_xmH36PvjYS0_kfjbR&url=http://pictur.io/faces/face"+$("#totalcaras").html()+".jpg&attribute=glass,gender,age,race", function( data ) {
+                        $("face"+$("#totalcaras").html()+"gender").html(data.face.attribute.gender.value);
+                        $("face"+$("#totalcaras").html()+"glass").html(data.face.attribute.glass.value);
+                        $("face"+$("#totalcaras").html()+"race").html(data.face.attribute.race.value);
+                        $("face"+$("#totalcaras").html()+"age").html(data.face.attribute.age.value);
                     });
