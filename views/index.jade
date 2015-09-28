@@ -15,7 +15,7 @@ block content
         script.
             $(document).ready(function(){
                     for(i=0; i<faces; i++) {
-                        $.get("http://apius.faceplusplus.com/v2/detection/detect?api_key=f0f939e1b74f86fc2cf035ab325c99f4&api_secret=5-5aeBoF5cocGQ_xmH36PvjYS0_kfjbR&url=http://pictur.io/faces/face"++".jpg&attribute=glass,gender,age,race", function( data ) {
+                        $.get("http://apius.faceplusplus.com/v2/detection/detect?api_key=f0f939e1b74f86fc2cf035ab325c99f4&api_secret=5-5aeBoF5cocGQ_xmH36PvjYS0_kfjbR&url=http://pictur.io/faces/face"+i+".jpg&attribute=glass,gender,age,race", function( data ) {
                                 $("face"+i+"gender").html(data.face.attribute.gender.value);
                                 $("face"+i+"glass").html(data.face.attribute.glass.value);
                                 $("face"+i+"race").html(data.face.attribute.race.value);
