@@ -17,10 +17,10 @@ block content
         script.
             for(j=0; j<$("#totalcaras").html(); j++) {
                 $.get("http://apius.faceplusplus.com/v2/detection/detect?api_key=f0f939e1b74f86fc2cf035ab325c99f4&api_secret=5-5aeBoF5cocGQ_xmH36PvjYS0_kfjbR&url=http://pictur.io/faces/face"+j+".jpg&attribute=glass,gender,age,race", function( data ) {
-                    $("face"+j+"gender").html(data.face.attribute.gender.value);
-                    $("face"+j+"glass").html(data.face.attribute.glass.value);
-                    $("face"+j+"race").html(data.face.attribute.race.value);
-                    $("face"+j+"age").html(data.face.attribute.age.value);
+                    $("face"+j+"gender").html(data.face[0].attribute.gender.value);
+                    $("face"+j+"glass").html(data.face[0].attribute.glass.value);
+                    $("face"+j+"race").html(data.face[0].attribute.race.value);
+                    $("face"+j+"age").html(data.face[0].attribute.age.value);
                 });
             }
 
