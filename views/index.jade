@@ -5,5 +5,12 @@ block content
         img(src="face-detection.png")
 
         - for (var i=0; i<faces; i++)
-            p
+            p(id="face"+i)
                 img(src="./faces/face"+i+".jpg", style="width:50%")
+                span(class="gender")
+                span(class="glases")
+                span(class="race")
+                span(class="age")
+        script(src="//code.jquery.com/jquery-1.11.3.min.js")
+        script.
+
