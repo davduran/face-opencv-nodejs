@@ -21,10 +21,11 @@ block content
         script.
             $(document).ready(function(){
                    $(".face").click(function(){
-                        $.get("http://apius.faceplusplus.com/v2/detection/detect?api_key=f0f939e1b74f86fc2cf035ab325c99f4&api_secret=5-5aeBoF5cocGQ_xmH36PvjYS0_kfjbR&url=http://pictur.io/faces/face"+$(this).attr('id')+".jpg&attribute=glass,gender,age,race", function( data ) {
-                            $(".face"+$(this).attr('id')+"gender").html(data.face[0].attribute.gender.value);
-                            $(".face"+$(this).attr('id')+"glass").html(data.face[0].attribute.glass.value);
-                            $(".face"+$(this).attr('id')+"race").html(data.face[0].attribute.race.value);
-                            $(".face"+$(this).attr('id')+"age").html(data.face[0].attribute.age.value);
+                            $.get("http://apius.faceplusplus.com/v2/detection/detect?api_key=f0f939e1b74f86fc2cf035ab325c99f4&api_secret=5-5aeBoF5cocGQ_xmH36PvjYS0_kfjbR&url=http://pictur.io/faces/face"+$(this).attr('id')+".jpg&attribute=glass,gender,age,race", function( data ) {
+                                $(".face"+$(this).attr('id')+"gender").html(data.face[0].attribute.gender.value);
+                                $(".face"+$(this).attr('id')+"glass").html(data.face[0].attribute.glass.value);
+                                $(".face"+$(this).attr('id')+"race").html(data.face[0].attribute.race.value);
+                                $(".face"+$(this).attr('id')+"age").html(data.face[0].attribute.age.value);
+                            });
                         });
-                    });
+                });
