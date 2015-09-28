@@ -6,6 +6,8 @@ block content
             span(id="totalcaras", style="font-weight:bold") !{ faces || '0'}
         img(src="face-detection.png", style="width:50%")
 
-        - for (var i=0; i<faces; i++)
-            p(id="face"+i, class="face", style="border:1px solid #cccccc; padding: 5px")
-                img(src="./faces/face"+i+".jpg")
+        table
+            tr
+                - for (var i=0; i<faces; i++)
+                    td(id="face"+i, class="face", style="border:1px solid #cccccc; padding: 5px")
+                        img(src="./faces/face"+i+".jpg")
