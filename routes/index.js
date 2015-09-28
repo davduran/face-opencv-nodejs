@@ -25,27 +25,27 @@ router.get('/', function(req, res, next) {
   });
 */
 
-try {
-  var camera = new cv.VideoCapture(0);
-  var window = new cv.NamedWindow('Video', 0)
+var COLOR = [0, 255, 0]; // default red
+var thickness = 2; // default 1
 
-  setInterval(function() {
-    camera.read(function(err, im) {
-      if (err) throw err;
-      console.log(im.size())
-      if (im.size()[0] > 0 && im.size()[1] > 0){
-        window.show(im);
-      }
-      window.blockingWaitKey(0, 50);
-    });
-  }, 20);
+cv.readImage('./public/prova.png', function(err, im) {
+  if (err) throw err;
+  if (im.width() < 1 || im.height() < 1) throw new Error('Image has no size');
 
-  console.log(im);
-  res.send("ok");
-} catch (e){
-  console.log("Couldn't start camera:", e);
-  res.send("Couldn't start camera:");
-}
+  im.detectObject('./public/cascade.xml', {}, function(err, faces) {
+    if (err) throw err;
+
+    for (var i = 0; i < faces.length; i++) {
+      face = faces[i];
+      im.rectangle([face.x, face.y], [face.width, face.height], COLOR, 2);
+    }
+
+    im.save('./public/face-detection-rectangle.png');
+    console.log('Image saved to ./public/face-detection-rectangle.png');
+    res.render('index', { faces: faces.length});
+  });
+
+});
 
 });
 
