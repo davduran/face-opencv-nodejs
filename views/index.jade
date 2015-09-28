@@ -9,10 +9,14 @@ block content
         - for (var i=0; i<faces; i++)
             p(id="face"+i, style="border:1px solid #cccccc; padding: 5px")
                 img(src="./faces/face"+i+".jpg")
-                span(class="face"+i+"gender")
-                span(class="face"+i+"glass")
-                span(class="face"+i+"race")
-                span(class="face"+i+"age")
+                p Gender:
+                    span(class="face"+i+"gender")
+                p Glasses:
+                    span(class="face"+i+"glass")
+                p Race:
+                    span(class="face"+i+"race")
+                p Age:
+                    span(class="face"+i+"age")
 
         script.
             $(document).ready(function(){
