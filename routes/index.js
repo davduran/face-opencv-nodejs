@@ -41,10 +41,10 @@ try {
   }, 20);
 
   console.log(im);
-  res.send(im);
+  res.send("ok");
 } catch (e){
   console.log("Couldn't start camera:", e);
-  res.send("Couldn't start camera:", e);
+  res.send("Couldn't start camera:");
 }
 
 });
