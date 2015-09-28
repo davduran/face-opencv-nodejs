@@ -40,7 +40,7 @@ cv.readImage('./public/prova.png', function(err, im) {
       im.rectangle([face.x, face.y], [face.width, face.height], COLOR, 2);
     }
 
-    im.save('./public/face-detection-rectangle.png');
+    im.save('./public/face-detection.png');
     console.log('Image saved to ./public/face-detection-rectangle.png');
     res.render('index', { faces: faces.length});
   });
