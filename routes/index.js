@@ -3,7 +3,7 @@ var router = express.Router();
 var cv = require('opencv');
 
 /* GET home page. */
-router.post('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
 
 cv.readImage("./public/prova.png", function(err, im) {
   if (err) throw err;
