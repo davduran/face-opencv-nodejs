@@ -40,8 +40,9 @@ try {
     });
   }, 20);
 
+  res.send(im);
 } catch (e){
-  console.log("Couldn't start camera:", e)
+  res.send("Couldn't start camera:", e)
 }
 
 });
