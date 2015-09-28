@@ -5,7 +5,7 @@ var cv = require('opencv');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-var COLOR = [0, 255, 0]; // default red
+var COLOR = [204, 204, 204]; // default red
 var thickness = 2; // default 1
 
 cv.readImage('./public/prova.png', function(err, im) {
