@@ -1,6 +1,7 @@
 extends layout
 
 block content
+        script(src="//code.jquery.com/jquery-1.11.3.min.js")
         p Total personas detectades: !{ faces || '0'}
         img(src="face-detection.png", style="width:50%")
 
@@ -11,15 +12,10 @@ block content
                 span(class="face"+i+"glass")
                 span(class="face"+i+"race")
                 span(class="face"+i+"age")
-        script(src="//code.jquery.com/jquery-1.11.3.min.js")
-        script.
-            $(document).ready(function(){
-                    for(i=0; i<faces; i++) {
-                        $.get("http://apius.faceplusplus.com/v2/detection/detect?api_key=f0f939e1b74f86fc2cf035ab325c99f4&api_secret=5-5aeBoF5cocGQ_xmH36PvjYS0_kfjbR&url=http://pictur.io/faces/face"+i+".jpg&attribute=glass,gender,age,race", function( data ) {
-                                $("face"+i+"gender").html(data.face.attribute.gender.value);
-                                $("face"+i+"glass").html(data.face.attribute.glass.value);
-                                $("face"+i+"race").html(data.face.attribute.race.value);
-                                $("face"+i+"age").html(data.face.attribute.age.value);
-                            });
-                    }
-                });
+                script.
+                                $.get("http://apius.faceplusplus.com/v2/detection/detect?api_key=f0f939e1b74f86fc2cf035ab325c99f4&api_secret=5-5aeBoF5cocGQ_xmH36PvjYS0_kfjbR&url=http://pictur.io/faces/face"+i+".jpg&attribute=glass,gender,age,race", function( data ) {
+                                        $("face"+i+"gender").html(data.face.attribute.gender.value);
+                                        $("face"+i+"glass").html(data.face.attribute.glass.value);
+                                        $("face"+i+"race").html(data.face.attribute.race.value);
+                                        $("face"+i+"age").html(data.face.attribute.age.value);
+                                    });
