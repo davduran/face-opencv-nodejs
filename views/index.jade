@@ -3,7 +3,7 @@ extends layout
 block content
         script(src="//code.jquery.com/jquery-1.11.3.min.js")
         p Total personas detectades:
-        span(id="totalcaras", style="font-weight:bold") !{ faces || '0'}
+            span(id="totalcaras", style="font-weight:bold") !{ faces || '0'}
         img(src="face-detection.png", style="width:50%")
 
         - for (var i=0; i<faces; i++)
