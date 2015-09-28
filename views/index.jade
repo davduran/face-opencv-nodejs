@@ -2,11 +2,11 @@ extends layout
 
 block content
         p Total personas detectades: !{ faces || '0'}
-        img(src="face-detection.png")
+        img(src="face-detection.png", style="width:50%")
 
         - for (var i=0; i<faces; i++)
             p(id="face"+i)
-                img(src="./faces/face"+i+".jpg", style="width:50%")
+                img(src="./faces/face"+i+".jpg")
                 span(class="gender")
                 span(class="glases")
                 span(class="race")
