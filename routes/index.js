@@ -20,7 +20,7 @@ cv.readImage('./public/prova.png', function(err, im) {
       im.rectangle([face.x, face.y], [face.width, face.height], COLOR, 2);
 
       var im2 = im.roi(face.x, face.y, face.width, face.height)
-      im2.save('./public/face'+i+'.jpg')
+      im2.save('./public/faces/face'+i+'.jpg')
     }
 
     im.save('./public/face-detection.png');

@@ -3,3 +3,6 @@ extends layout
 block content
         p Total personas detectades: !{ faces || '0'}
         img(src="face-detection.png")
+
+        - for (var i=0; i<faces; i++)
+            img(src="./faces/face"+i+".jpg")
